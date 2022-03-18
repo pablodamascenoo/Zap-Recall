@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export default function InitialScreen() {
+export default function InitialScreen(props) {
+  const { state, toggleScreen } = props;
+
   const Title = styled.p`
     @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
     color: white;
@@ -27,6 +29,12 @@ export default function InitialScreen() {
     width: 192px;
     height: 41px;
     font-family: "Recursive", sans-serif;
+    transition: 0.8s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   `;
 
   const Box = styled.div`
@@ -41,13 +49,15 @@ export default function InitialScreen() {
     height: 100px;
   `;
 
-  return (
+  return !state ? (
     <Container className="initial-screen">
       <Box>
         <Image src="assets/images/image 1.svg" alt="" />
         <Title>ZapRecall</Title>
       </Box>
-      <Button>Iniciar Recall</Button>
+      <Button onClick={toggleScreen}>Iniciar Recall</Button>
     </Container>
+  ) : (
+    <></>
   );
 }
