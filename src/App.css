@@ -4,12 +4,9 @@
 
 body{
     background: #FB6B6B;
+    height: 100vh;
 }
 
 .root{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
