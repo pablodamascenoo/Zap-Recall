@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Deck from "./Deck.js";
-export default function QuizzScreen({ state, toggleScreen }) {
+export default function QuizzScreen({ state, toggleScreen, rightAnswers }) {
   const [count, SetCount] = React.useState(0);
   const [ionicons, SetIonicons] = React.useState([]);
 
@@ -84,11 +84,11 @@ export default function QuizzScreen({ state, toggleScreen }) {
       let red = ionicons.filter((item) =>
         item.color === "red" ? true : false
       );
-      if (red.length === 0) {
+      if (red.length + rightAnswers <= 8) {
         return (
           <>
             <Alert>🥳 Parabéns!</Alert>
-            <Progress>Você não esqueceu de nenhum flashcard!</Progress>
+            <Progress>Você atingiu a sua meta de flashcard!</Progress>
           </>
         );
       } else {

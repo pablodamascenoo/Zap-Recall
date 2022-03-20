@@ -6,15 +6,21 @@ import "./App.css";
 
 function App() {
   const [stateScreen, SetStateScreen] = React.useState(false);
+  const [answers, SetAnswers] = React.useState(0);
 
-  function toggleScreen() {
+  function toggleScreen(number) {
+    if (number !== undefined) SetAnswers(number);
     SetStateScreen(!stateScreen);
   }
 
   return (
     <>
       <InitialScreen toggleScreen={toggleScreen} state={stateScreen} />{" "}
-      <QuizzScreen state={stateScreen} toggleScreen={toggleScreen} />
+      <QuizzScreen
+        rightAnswers={answers}
+        state={stateScreen}
+        toggleScreen={toggleScreen}
+      />
     </>
   );
 }
