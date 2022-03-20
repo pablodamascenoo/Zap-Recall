@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Deck from "./Deck.js";
 export default function QuizzScreen({ state }) {
   const Container = styled.div``;
 
@@ -29,14 +30,21 @@ export default function QuizzScreen({ state }) {
     margin-left: 12px;
   `;
 
+  const Progress = styled.p`
+    @import url("https://fonts.googleapis.com/css2?family=Recursive&display=swap");
+    font-family: "Recursive", sans-serif;
+    font-size: 18px;
+  `;
+
   return state ? (
     <Container>
       <Box>
         <img src="assets/images/image 1.svg" alt="" />
         <Title>ZapRecall</Title>
       </Box>
+      <Deck />
       <Footer>
-        <p>0/4 CONCLUÍDOS</p>
+        <Progress>0/4 CONCLUÍDOS</Progress>
       </Footer>
     </Container>
   ) : (
