@@ -1,6 +1,6 @@
 import React from "react";
 import FlashCard from "./FlashCard";
-import "./Question.css";
+import "./style/Question.css";
 
 export default function Question({
   number,

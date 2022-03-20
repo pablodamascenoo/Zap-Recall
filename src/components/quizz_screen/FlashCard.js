@@ -1,4 +1,4 @@
-import "./FlashCard.css";
+import "./style/FlashCard.css";
 import React from "react";
 import Button from "./Button.js";
 
