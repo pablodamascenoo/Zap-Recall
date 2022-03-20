@@ -1,7 +1,8 @@
 import "./FlashCard.css";
 import React from "react";
+import Button from "./Button.js";
 
-export default function FlashCard() {
+export default function FlashCard({ question, answer }) {
   const [flip, SetFlip] = React.useState("");
 
   function toggleFlip() {
@@ -13,11 +14,16 @@ export default function FlashCard() {
     <div className="container">
       <div className={`inner-content ${flip}`}>
         <div className="flip-card-front">
-          <p>O que é JSX?</p>
+          <p>{question}</p>
           <ion-icon onClick={toggleFlip} name="arrow-undo"></ion-icon>
         </div>
         <div className="flip-card-back">
-          <p>Texto irado bla bla</p>
+          <p>{answer}</p>
+          <div className="button-wrap">
+            <Button color="yellow" />
+            <Button color="green" />
+            <Button color="red" />
+          </div>
         </div>
       </div>
     </div>
