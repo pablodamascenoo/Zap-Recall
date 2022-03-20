@@ -7,7 +7,6 @@ export default function FlashCard({ question, answer, toggleColor, index }) {
 
   function toggleFlip() {
     if (flip === "") SetFlip("rotate");
-    else SetFlip("");
   }
 
   return (
@@ -15,7 +14,11 @@ export default function FlashCard({ question, answer, toggleColor, index }) {
       <div className={`inner-content ${flip}`}>
         <div className="flip-card-front">
           <p>{question}</p>
-          <ion-icon onClick={toggleFlip} name="arrow-undo"></ion-icon>
+          {flip === "" ? (
+            <ion-icon onClick={toggleFlip} name="arrow-undo"></ion-icon>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="flip-card-back">
           <p>{answer}</p>
