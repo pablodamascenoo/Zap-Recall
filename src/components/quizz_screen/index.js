@@ -1,6 +1,16 @@
+import React from "react";
 import styled from "styled-components";
 import Deck from "./Deck.js";
 export default function QuizzScreen({ state }) {
+  const [count, SetCount] = React.useState(0);
+  const [ionicons, SetIonicons] = React.useState([]);
+
+  function changeFooter(color, index) {
+    let listColor = [...ionicons];
+    SetCount(count + 1);
+    SetIonicons([...listColor, { color: color, index: index }]);
+  }
+
   const Container = styled.div``;
 
   const Footer = styled.div`
@@ -9,7 +19,9 @@ export default function QuizzScreen({ state }) {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    flex-direction: column;
+    height: 70px;
+    gap: 7px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -42,9 +54,24 @@ export default function QuizzScreen({ state }) {
         <img src="assets/images/image 1.svg" alt="" />
         <Title>ZapRecall</Title>
       </Box>
-      <Deck />
+      <Deck changeFooter={changeFooter} colorList={ionicons} />
       <Footer>
-        <Progress>0/4 CONCLUÍDOS</Progress>
+        <Progress>{`${count}/8 CONCLUÍDOS`}</Progress>
+        <div>
+          {ionicons.map((ionicon, index) => {
+            let name = "";
+            if (ionicon.color === "green") name = "checkmark-circle";
+            else if (ionicon.color === "yellow") name = "help-circle";
+            else name = "close-circle";
+            return (
+              <ion-icon
+                key={index}
+                class={ionicon.color}
+                name={name}
+              ></ion-icon>
+            );
+          })}
+        </div>
       </Footer>
     </Container>
   ) : (

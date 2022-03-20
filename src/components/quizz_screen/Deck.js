@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Question from "./Question";
-export default function Deck() {
+export default function Deck({ changeFooter, colorList }) {
   let deck = [
     {
       question: "O que é JSX?",
@@ -56,12 +56,21 @@ export default function Deck() {
   return (
     <Container>
       {deck.map((card, index) => {
+        let filteredColorList;
+        filteredColorList = colorList.filter((item) =>
+          item.index === index ? true : false
+        );
+        if (filteredColorList[0] === undefined) filteredColorList = "";
+        else filteredColorList = filteredColorList[0].color;
         return (
           <Question
+            index={index}
+            changeFooter={changeFooter}
             key={index}
             number={index + 1}
             question={card.question}
             answer={card.answer}
+            color={filteredColorList}
           />
         );
       })}

@@ -2,7 +2,7 @@ import "./FlashCard.css";
 import React from "react";
 import Button from "./Button.js";
 
-export default function FlashCard({ question, answer, toggleColor }) {
+export default function FlashCard({ question, answer, toggleColor, index }) {
   const [flip, SetFlip] = React.useState("");
 
   function toggleFlip() {
@@ -20,9 +20,9 @@ export default function FlashCard({ question, answer, toggleColor }) {
         <div className="flip-card-back">
           <p>{answer}</p>
           <div className="button-wrap">
-            <Button toggleColor={toggleColor} color="yellow" />
-            <Button toggleColor={toggleColor} color="green" />
-            <Button toggleColor={toggleColor} color="red" />
+            <Button index={index} toggleColor={toggleColor} color="yellow" />
+            <Button index={index} toggleColor={toggleColor} color="green" />
+            <Button index={index} toggleColor={toggleColor} color="red" />
           </div>
         </div>
       </div>

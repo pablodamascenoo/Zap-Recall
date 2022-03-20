@@ -2,9 +2,16 @@ import React from "react";
 import FlashCard from "./FlashCard";
 import "./Question.css";
 
-export default function Question({ number, question, answer }) {
+export default function Question({
+  number,
+  question,
+  answer,
+  changeFooter,
+  index,
+  color,
+}) {
   const [play, SetPlay] = React.useState(false);
-  const [color, SetColor] = React.useState("");
+  // const [color, SetColor] = React.useState("");
 
   let card;
 
@@ -12,8 +19,9 @@ export default function Question({ number, question, answer }) {
     SetPlay(!play);
   }
 
-  function toggleColor(colorName) {
-    SetColor(colorName);
+  function toggleColor(colorName, index) {
+    changeFooter(colorName, index);
+    // SetColor(colorName);
   }
 
   if (!play)
@@ -26,6 +34,7 @@ export default function Question({ number, question, answer }) {
   else
     card = (
       <FlashCard
+        index={index}
         question={question}
         answer={answer}
         toggleColor={toggleColor}
