@@ -44,7 +44,13 @@ export default function Deck() {
     align-items: center;
     gap: 10px;
     padding-bottom: 100px;
-    overflow: scroll;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `;
 
   return (
@@ -52,6 +58,7 @@ export default function Deck() {
       {deck.map((card, index) => {
         return (
           <Question
+            key={index}
             number={index + 1}
             question={card.question}
             answer={card.answer}

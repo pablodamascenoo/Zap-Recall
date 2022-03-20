@@ -18,8 +18,26 @@
     font-size: 16px;
     font-family: 'Recursive', sans-serif;
     font-weight: 700;
+    font-style: bold;
 }
 
 .question-container > ion-icon{
+    cursor: pointer;
     font-size: 25px;
+}
+
+.green, .yellow, .red{
+    text-decoration-line: line-through;
+}
+
+.green{
+    color: #2FBE34;
+}
+
+.yellow{
+    color: #FF922E;
+}
+
+.red{
+    color: #FF3030;
 }
