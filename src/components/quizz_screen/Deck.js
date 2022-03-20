@@ -38,6 +38,12 @@ export default function Deck({ changeFooter, colorList }) {
     },
   ];
 
+  if (colorList.length === 0) {
+    deck.sort(() => {
+      return Math.random() > 0.5 ? 1 : -1;
+    });
+  }
+
   const Container = styled.article`
     margin-top: 37px;
     display: flex;
