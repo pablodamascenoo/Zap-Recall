@@ -11,7 +11,12 @@ export default function QuizzScreen({ state }) {
     SetIonicons([...listColor, { color: color, index: index }]);
   }
 
-  const Container = styled.main``;
+  const Alert = styled.p`
+    @import url("https://fonts.googleapis.com/css2?family=Recursive:wght@700&display=swap");
+    font-family: "Recursive", sans-serif;
+    font-weight: 700;
+    padding-top: 10px;
+  `;
 
   const Image = styled.img`
     width: 52px;
@@ -25,8 +30,9 @@ export default function QuizzScreen({ state }) {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 70px;
-    gap: 7px;
+    height: inherit;
+    min-height: 70px;
+    gap: 14px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -51,16 +57,42 @@ export default function QuizzScreen({ state }) {
     @import url("https://fonts.googleapis.com/css2?family=Recursive&display=swap");
     font-family: "Recursive", sans-serif;
     font-size: 18px;
+    text-align: center;
   `;
 
+  function hasRed() {
+    if (count === 8) {
+      let red = ionicons.filter((item) =>
+        item.color === "red" ? true : false
+      );
+      if (red.length === 0) {
+        return (
+          <>
+            <Alert>🥳 Parabéns!</Alert>
+            <Progress>Você não esqueceu de nenhum flashcard!</Progress>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <Alert>😥 Putz...</Alert>
+            <Progress>Ainda faltam alguns... Mas não desanime!</Progress>
+          </>
+        );
+      }
+    }
+    return <></>;
+  }
+
   return state ? (
-    <Container>
+    <main>
       <Box>
         <Image src="assets/images/image 1.svg" alt="" />
         <Title>ZapRecall</Title>
       </Box>
       <Deck changeFooter={changeFooter} colorList={ionicons} />
       <Footer>
+        {hasRed()}
         <Progress>{`${count}/8 CONCLUÍDOS`}</Progress>
         <div>
           {ionicons.map((ionicon, index) => {
@@ -78,7 +110,7 @@ export default function QuizzScreen({ state }) {
           })}
         </div>
       </Footer>
-    </Container>
+    </main>
   ) : (
     <></>
   );
