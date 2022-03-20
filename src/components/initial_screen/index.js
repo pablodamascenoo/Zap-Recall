@@ -7,7 +7,7 @@ export default function InitialScreen(props) {
     @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
     color: white;
     font-family: "Righteous";
-    font-size: 45px;
+    font-size: 36px;
   `;
 
   const Container = styled.div`
@@ -17,7 +17,7 @@ export default function InitialScreen(props) {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    gap: 150px;
+    gap: 30px;
   `;
 
   const Button = styled.button`
@@ -28,8 +28,8 @@ export default function InitialScreen(props) {
     border-radius: 5px;
     color: #d70900;
     font-size: 18px;
-    width: 192px;
-    height: 41px;
+    width: 246px;
+    height: 54px;
     font-family: "Recursive", sans-serif;
     transition: 0.8s;
     cursor: pointer;
@@ -44,11 +44,12 @@ export default function InitialScreen(props) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 13px;
   `;
 
   const Image = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 136px;
+    height: 161px;
   `;
 
   return !state ? (
