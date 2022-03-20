@@ -11,9 +11,14 @@ export default function QuizzScreen({ state }) {
     SetIonicons([...listColor, { color: color, index: index }]);
   }
 
-  const Container = styled.div``;
+  const Container = styled.main``;
 
-  const Footer = styled.div`
+  const Image = styled.img`
+    width: 52px;
+    height: 60px;
+  `;
+
+  const Footer = styled.footer`
     position: fixed;
     background-color: white;
     display: flex;
@@ -27,7 +32,7 @@ export default function QuizzScreen({ state }) {
     right: 0;
   `;
 
-  const Box = styled.div`
+  const Box = styled.header`
     padding-top: 19px;
     display: flex;
     align-items: center;
@@ -51,7 +56,7 @@ export default function QuizzScreen({ state }) {
   return state ? (
     <Container>
       <Box>
-        <img src="assets/images/image 1.svg" alt="" />
+        <Image src="assets/images/image 1.svg" alt="" />
         <Title>ZapRecall</Title>
       </Box>
       <Deck changeFooter={changeFooter} colorList={ionicons} />

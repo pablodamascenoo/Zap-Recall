@@ -11,8 +11,6 @@ export default function Question({
   color,
 }) {
   const [play, SetPlay] = React.useState(false);
-  // const [color, SetColor] = React.useState("");
-
   let card;
 
   function playCard() {
@@ -21,15 +19,14 @@ export default function Question({
 
   function toggleColor(colorName, index) {
     changeFooter(colorName, index);
-    // SetColor(colorName);
   }
 
   if (!play)
     card = (
-      <div className="question-container">
+      <section className="question-container">
         <p>{`Pergunta ${number}`}</p>
         <ion-icon onClick={playCard} name="play-outline"></ion-icon>
-      </div>
+      </section>
     );
   else
     card = (
@@ -47,10 +44,10 @@ export default function Question({
     else if (color === "yellow") ionName = "help-circle";
     else ionName = "close-circle";
     card = (
-      <div className={`question-container ${color}`}>
+      <section className={`question-container ${color}`}>
         <p>{`Pergunta ${number}`}</p>
         <ion-icon name={ionName}></ion-icon>
-      </div>
+      </section>
     );
   }
 

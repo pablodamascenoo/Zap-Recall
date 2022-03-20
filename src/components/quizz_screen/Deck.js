@@ -37,7 +37,7 @@ export default function Deck({ changeFooter, colorList }) {
     },
   ];
 
-  const Container = styled.div`
+  const Container = styled.article`
     margin-top: 37px;
     display: flex;
     flex-direction: column;

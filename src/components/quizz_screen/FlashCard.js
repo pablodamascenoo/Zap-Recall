@@ -11,7 +11,7 @@ export default function FlashCard({ question, answer, toggleColor, index }) {
   }
 
   return (
-    <div className="container">
+    <section className="container">
       <div className={`inner-content ${flip}`}>
         <div className="flip-card-front">
           <p>{question}</p>
@@ -26,6 +26,6 @@ export default function FlashCard({ question, answer, toggleColor, index }) {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

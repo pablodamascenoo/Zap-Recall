@@ -10,7 +10,7 @@ export default function InitialScreen(props) {
     font-size: 36px;
   `;
 
-  const Container = styled.div`
+  const Container = styled.main`
     display: flex;
     align-items: center;
     justify-content: center;
