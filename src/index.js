@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <InitialScreen toggleScreen={toggleScreen} state={stateScreen} />{" "}
-      <QuizzScreen state={stateScreen} />
+      <QuizzScreen state={stateScreen} toggleScreen={toggleScreen} />
     </>
   );
 }

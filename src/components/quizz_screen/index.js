@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Deck from "./Deck.js";
-export default function QuizzScreen({ state }) {
+export default function QuizzScreen({ state, toggleScreen }) {
   const [count, SetCount] = React.useState(0);
   const [ionicons, SetIonicons] = React.useState([]);
 
@@ -60,6 +60,25 @@ export default function QuizzScreen({ state }) {
     text-align: center;
   `;
 
+  const Reset = styled.button`
+    @import url("https://fonts.googleapis.com/css2?family=Recursive&display=swap");
+    width: 167px;
+    height: 32px;
+    margin-bottom: 21px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fb6b6b;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: #d70900;
+    }
+  `;
+
   function hasRed() {
     if (count === 8) {
       let red = ionicons.filter((item) =>
@@ -109,6 +128,21 @@ export default function QuizzScreen({ state }) {
             );
           })}
         </div>
+        {count === 8 ? (
+          <>
+            <Reset
+              onClick={() => {
+                SetCount(0);
+                SetIonicons([]);
+                toggleScreen();
+              }}
+            >
+              REINICIAR RECALL
+            </Reset>
+          </>
+        ) : (
+          <></>
+        )}
       </Footer>
     </main>
   ) : (
