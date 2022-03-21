@@ -70,7 +70,7 @@ export default function InitialScreen(props) {
     }
   `;
 
-  let value = 0;
+  let value;
 
   return !state ? (
     <Container className="initial-screen">
@@ -84,14 +84,15 @@ export default function InitialScreen(props) {
         placeholder="Digite sua meta de zaps..."
         type="number"
         onChange={(e) => {
-          if (e.target.value < 0) e.target.value = 0;
+          if (e.target.value < 1) e.target.value = 1;
           else if (e.target.value > 8) e.target.value = 8;
           value = e.target.value;
         }}
       />
       <Button
         onClick={() => {
-          toggleScreen(parseInt(value));
+          if (value === undefined) toggleScreen(value);
+          else toggleScreen(parseInt(value));
         }}
       >
         Iniciar Recall

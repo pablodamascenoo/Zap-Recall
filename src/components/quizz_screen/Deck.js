@@ -28,8 +28,7 @@ export default function Deck({ changeFooter, colorList }) {
     },
     {
       question: "Usamos props para __",
-      answer:
-        "passar AÇSLKDJSAÇLDKJSAÇLDKJASÇLDKJSAÇDLKASJÇDLSAKJDÇLASKDASÇLDKJSAÇLDKJdiferentes informações para componentes ",
+      answer: "passar diferentes informações para componentes ",
     },
     {
       question: "Usamos estado (state) para __",

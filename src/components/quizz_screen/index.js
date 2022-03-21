@@ -80,6 +80,7 @@ export default function QuizzScreen({ state, toggleScreen, rightAnswers }) {
   `;
 
   function hasRed() {
+    if (rightAnswers === 0) rightAnswers = 8;
     if (count === 8) {
       let red = ionicons.filter((item) =>
         item.color === "red" ? true : false
